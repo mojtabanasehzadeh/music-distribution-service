@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: music-distribution-service
+
+  # H2 In-memory database configuration
+  datasource:
+    url: jdbc:h2:mem:musicdb# <-- In-memory database named 'musicdb'
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # <-- Schema updated automatically
+    show-sql: true     # <-- Log SQL statements
+    properties:
+      hibernate:
+        format_sql: true # <-- Format logged SQL
+
+  h2:
+    console:
+      enabled: true      # <-- H2 web console is enabled
+      path: /h2-console # <-- Path for H2 web console
+
+# Server configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# Actuator endpoints for health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# OpenAPI/Swagger configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.ice.musicdistribution: DEBUG
+    org.springframework: INFO

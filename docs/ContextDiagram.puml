@@ -1,0 +1,23 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title System Context diagram for Music Distribution Service
+
+Person(artist, "Artist", "A musician who creates and manages music releases")
+Person(listener, "Listener", "A user who streams music from the platform")
+
+System(mds, "Music Distribution Service", "Allows artists to manage releases and track streaming metrics")
+System_Ext(streamingPlatform, "Streaming Platform", "External platform where listeners stream music (e.g., Spotify)")
+
+Rel(artist, mds, "Creates releases, proposes dates, requests reports")
+Rel(streamingPlatform, mds, "Sends stream data")
+Rel(listener, streamingPlatform, "Streams music")
+Rel(mds, streamingPlatform, "Distributes songs when releases are published")
+
+Enterprise_Boundary(b0, "Music Streaming Ecosystem") {
+    System_Boundary(b1, "Core Services") {
+        System(mds, "Music Distribution Service", "Allows artists to manage releases and track streaming metrics")
+    }
+}
+
+@enduml

@@ -1,0 +1,65 @@
+@startuml
+title Class Diagram for Music Distribution Domain
+
+class Release {
+    - UUID id
+    - String title
+    - UUID artistId
+    - Set<UUID> songs
+    - LocalDate proposedReleaseDate
+    - LocalDate approvedReleaseDate
+    - LocalDate publishedDate
+    - ReleaseStatus status
+    + addSongs(songIds)
+    + proposeReleaseDate(date)
+    + approveReleaseDate(date)
+    + publish(date)
+    + withdraw()
+}
+
+class CommandBus {
+    - Map handlers
+    + register(commandType, handler)
+    + execute(command)
+    + executeForResult(command)
+}
+
+class EventStore {
+    + store(event)
+    + getEventsForAggregate(aggregateId)
+    + getEventsByType(eventType)
+    + getAllEvents()
+}
+
+class CreateReleaseHandler {
+    + handle(CreateRelease) : Release
+}
+
+class ReleaseCreated {
+    - UUID id
+    - UUID aggregateId
+    - long timestamp
+    - String title
+    - UUID artistId
+}
+
+class SongSearchProjection {
+    - Map songsById
+    - Set publishedReleases
+    + on(ReleasePublished)
+    + on(ReleaseWithdrawn)
+    + searchByTitle(term, distance) : List<Song>
+}
+
+class LevenshteinSearchService {
+    + searchSongsByTitle(searchTerm, maxDistance)
+}
+
+CommandBus --> CreateReleaseHandler : routes to
+CreateReleaseHandler --> Release : creates
+CreateReleaseHandler --> EventStore : stores events
+CreateReleaseHandler --> ReleaseCreated : creates
+EventStore --> SongSearchProjection : provides events
+SongSearchProjection --> LevenshteinSearchService : supports
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam BackgroundColor transparent
+
+' Color definitions to match classDef
+skinparam activity {
+    BackgroundColor<<CommandSide>> #f96
+    BackgroundColor<<QuerySide>> #69f
+    BackgroundColor<<EventStore>> #f69
+    BorderColor black
+}
+
+title Flow of Command and Query Responsibilities (CQRS + Event Sourcing)
+
+partition "Command Side" {
+    :API Request; <<CommandSide>> --> :Command; <<CommandSide>>
+    :Command; --> :Command Handler; <<CommandSide>>
+    :Command Handler; --> :Aggregate; <<CommandSide>>
+    :Aggregate; --> :Domain Event; <<EventStore>>
+    :Domain Event; --> :Event Store; <<EventStore>>
+}
+
+partition "Event Store" {
+    :Event Store; --> :Event Processing; <<QuerySide>>
+}
+
+partition "Query Side" {
+    :Event Processing; --> :Projections; <<QuerySide>>
+    :Projections; --> :Read Models; <<QuerySide>>
+    :API Query; <<QuerySide>> --> :Query Service; <<QuerySide>>
+    :Query Service; --> :Read Models; <<QuerySide>>
+}
+
+@enduml

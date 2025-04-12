@@ -1,0 +1,40 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Component diagram for Music Distribution Service Application
+
+Person(artist, "Artist", "Creates and manages releases")
+System_Ext(streamingPlatform, "Streaming Platform", "External platform")
+
+Container(api, "API Application", "Java, Spring Boot", "Provides REST APIs")
+Container_Ext(eventStore, "Event Store", "H2 Database", "Stores events")
+Container_Ext(readModels, "Read Models", "H2 Database", "Stores views")
+
+Container_Boundary(api, "API Application") {
+    Component(commandController, "Command Controller", "REST Controller", "Handles writes")
+    Component(queryController, "Query Controller", "REST Controller", "Handles reads")
+    
+    Component(commandBus, "Command Bus", "Java", "Routes commands")
+    
+    Component(commandHandlers, "Command Handlers", "Java", "Business logic")
+    Component(domainModel, "Domain Model", "Java", "Core entities")
+    
+    Component(projections, "Projections", "Java", "Builds read models")
+    Component(levenshteinService, "Search Service", "Java", "Song search")
+}
+
+Rel(artist, commandController, "Uses", "HTTP")
+Rel(artist, queryController, "Uses", "HTTP")
+Rel(streamingPlatform, commandController, "Sends data", "HTTP")
+
+Rel(commandController, commandBus, "Dispatches")
+Rel(commandBus, commandHandlers, "Routes to")
+Rel(commandHandlers, domainModel, "Updates")
+Rel(commandHandlers, eventStore, "Stores events")
+Rel(eventStore, projections, "Provides events")
+Rel(projections, readModels, "Updates")
+Rel(queryController, projections, "Uses")
+Rel(queryController, levenshteinService, "Uses")
+Rel(levenshteinService, readModels, "Queries")
+
+@enduml

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6190fdb-98b0-4937-8eb5-7ac84fed49f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/ContextDiagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/FlowDiagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/SimplifiedClassDaigram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/api/ApiExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/CommandBus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/CreateRelease.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/CreateReleaseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/config/CqrsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/LabelRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/ArtistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/job/ReleasePublisherJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/StreamStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/setup.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/MusicDistributionDemoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/api/command/CommandControllerIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/api/query/QueryControllerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/cqrs.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CQRS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/api/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/api/command/CommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/api/query/QueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/api/query/QueryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/AddSongsToRelease.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/AddSongsToRelease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/ApproveReleaseDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/ApproveReleaseDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/ProposeReleaseDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/ProposeReleaseDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/PublishRelease.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/PublishRelease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/RecordStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/RecordStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/RequestPaymentReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/RequestPaymentReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/WithdrawRelease.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/commands/WithdrawRelease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/AddSongsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/AddSongsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/ApproveDateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/ApproveDateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/PaymentReportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/PaymentReportHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/ProposeDateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/ProposeDateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/PublishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/PublishHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/StreamHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/StreamHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/WithdrawHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/command/handlers/WithdrawHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Release.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Release.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Stream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/aggregates/Stream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/DomainEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/DomainEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/PaymentReportRequested.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/PaymentReportRequested.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseDateApproved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseDateApproved.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseDateProposed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseDateProposed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleasePublished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleasePublished.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseWithdrawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/ReleaseWithdrawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/SongsAddedToRelease.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/SongsAddedToRelease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/StreamMonetized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/StreamMonetized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/StreamRecorded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/events/StreamRecorded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/LabelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/LabelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/ReleaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/ReleaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/SongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/StreamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/domain/repositories/StreamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/eventstore/EventStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/eventstore/EventStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/ArtistStreamProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/ArtistStreamProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/MonetizationProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/MonetizationProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/PaymentReportProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/PaymentReportProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/SongSearchProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/SongSearchProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/StreamStatsProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/projections/StreamStatsProjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/ArtistStreamReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/ArtistStreamReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/MonetizationReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/MonetizationReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/PaymentReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/PaymentReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/SongReadModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/readmodels/SongReadModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/services/LevenshteinSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/services/LevenshteinSearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ice/musicdistribution/query/services/ReportingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ComponentDiaram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/api/CommandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/docs/MiroLink.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/api/QueryControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/command/handlers/CommandHandlersTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/domain/aggregates/ReleaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/e2e/CucumberTestRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/e2e/stepdefs/ReleaseStepDefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/release_management.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/song_streaming.feature" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="music-distribution-service" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="music-distribution-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="music-distribution-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="music-distribution-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="music-distribution-service" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="UML Sequence" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2vWynx0iXTZ0rOEANrrdKdRsb6q" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cucumber Java.Feature: release_management.executor": "Run",
+    "Cucumber Java.Scenario: Complete release lifecycle.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "Gradle.Build music-distribution-service.executor": "Run",
+    "Gradle.CommandControllerIntegrationTest.executor": "Run",
+    "Gradle.CommandControllerIntegrationTest.testCreateRelease.executor": "Run",
+    "Gradle.CommandControllerIntegrationTest.testPublishRelease_Success.executor": "Run",
+    "Gradle.MusicDistributionDemoTest.executor": "Run",
+    "Gradle.MusicDistributionDemoTest.fullReleaseLifecycleTest.executor": "Run",
+    "Gradle.MusicDistributionDemoTest2.fullReleaseLifecycleTest.executor": "Debug",
+    "Gradle.QueryControllerIntegrationTest.executor": "Run",
+    "Gradle.QueryControllerIntegrationTest.testSearchSongsByTitle.executor": "Run",
+    "Gradle.Tests in 'music-distribution-service.test'.executor": "Run",
+    "Gradle.music-distribution-service [:H2TestDataSaver.main()].executor": "Debug",
+    "Gradle.music-distribution-service [:MusicDistributionApplication.main()].executor": "Run",
+    "Gradle.music-distribution-service [bootRun].executor": "Run",
+    "Gradle.music-distribution-service [build].executor": "Run",
+    "Gradle.music-distribution-service [clean].executor": "Run",
+    "Gradle.music-distribution-service.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/user/Develop/music-distribution-service",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/docs" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ice.musicdistribution.e2e" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ice.musicdistribution" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.MusicDistributionDemoTest">
+    <configuration name="H2TestDataSaver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ice.musicdistribution.H2TestDataSaver" />
+      <module name="music-distribution-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ice.musicdistribution.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MusicDistributionApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ice.musicdistribution.MusicDistributionApplication" />
+      <module name="music-distribution-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ice.musicdistribution.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MusicDistributionDemoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.ice.musicdistribution.MusicDistributionDemoTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MusicDistributionDemoTest2.fullReleaseLifecycleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.ice.musicdistribution.MusicDistributionDemoTest2.fullReleaseLifecycleTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MusicDistributionDemoTest.fullReleaseLifecycleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.ice.musicdistribution.MusicDistributionDemoTest.fullReleaseLifecycleTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.H2TestDataSaver" />
+      <item itemvalue="Application.MusicDistributionApplication" />
+      <item itemvalue="Gradle.MusicDistributionDemoTest" />
+      <item itemvalue="Gradle.MusicDistributionDemoTest2.fullReleaseLifecycleTest" />
+      <item itemvalue="Gradle.MusicDistributionDemoTest.fullReleaseLifecycleTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.MusicDistributionDemoTest" />
+        <item itemvalue="Gradle.MusicDistributionDemoTest.fullReleaseLifecycleTest" />
+        <item itemvalue="Gradle.MusicDistributionDemoTest2.fullReleaseLifecycleTest" />
+        <item itemvalue="Application.H2TestDataSaver" />
+        <item itemvalue="Application.MusicDistributionApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6190fdb-98b0-4937-8eb5-7ac84fed49f1" name="Changes" comment="" />
+      <created>1744275294956</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744275294956</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.web.servlet.resource.NoResourceFoundException" package="org.springframework.web.servlet.resource" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/MusicDistributionDemoTest.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/api/query/QueryControllerIntegrationTest.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/e2e/stepdefs/ReleaseManagementSteps.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ice/musicdistribution/MusicDistributionDemoTest.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -41,31 +41,31 @@
 
     <!-- Event logger for CQRS events -->
     <logger name="com.ice.musicdistribution.eventstore" level="DEBUG" additivity="false">
-        <appender-ref ref="EVENT_FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="EVENT_FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Application specific loggers -->
     <logger name="com.ice.musicdistribution" level="DEBUG" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Spring Framework loggers -->
     <logger name="org.springframework" level="INFO" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Hibernate and JPA loggers -->
     <logger name="org.hibernate" level="INFO" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Root logger -->
     <root level="INFO">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

@@ -1,0 +1,28 @@
+.env
+*.env
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Build tool directories
+/target/
+/build/
+/out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+modules.xml
+# Older format:
+# *.ipr
+# *.iws
+
+# Mac OS specific files
+.DS_Store
+/.gradle/
+/build/
