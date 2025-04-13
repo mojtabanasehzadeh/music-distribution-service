@@ -217,4 +217,51 @@ public class CommandControllerIntegrationTest {
         Release updatedRelease = releaseRepository.findById(release.getId()).orElseThrow();
         assertEquals(Release.ReleaseStatus.WITHDRAWN, updatedRelease.getStatus());
     }
+
+    @Test
+    void testCreateReleaseWithInvalidData() throws Exception {
+        // Create request with missing required data
+        Map<String, Object> requestData = new HashMap<>();
+        // Missing title and artistId
+
+        // Perform request
+        mockMvc.perform(post("/commands/releases")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestData)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testAddSongsToReleaseOwnedByDifferentArtist() throws Exception {
+        // Create a release owned by artist1
+        Release release = new Release(UUID.randomUUID(), "Test Release", artistId);
+        releaseRepository.save(release);
+
+        // Create different artist
+        UUID differentArtistId = UUID.randomUUID();
+        Artist differentArtist = new Artist(differentArtistId, "Different Artist", labelId);
+        artistRepository.save(differentArtist);
+
+        // Create request data with different artist
+        Map<String, Object> requestData = new HashMap<>();
+        requestData.put("artistId", differentArtistId.toString());
+        requestData.put("songIds", Arrays.asList(song1Id.toString(), song2Id.toString()));
+
+        // Perform request
+        mockMvc.perform(put("/commands/releases/" + release.getId() + "/songs")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestData)))
+                .andExpect(status().isConflict());
+    }
+
+    @Test
+    void testPublishReleaseWithoutApproval() throws Exception {
+        // Create a release that is not yet approved
+        Release release = new Release(UUID.randomUUID(), "Test Release", artistId);
+        releaseRepository.save(release);
+
+        // Perform request
+        mockMvc.perform(post("/commands/releases/" + release.getId() + "/publish"))
+                .andExpect(status().isConflict());
+    }
 }

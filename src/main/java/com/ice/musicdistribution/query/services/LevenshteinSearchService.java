@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -33,6 +30,10 @@ public class LevenshteinSearchService {
      * @return List of songs that match the search criteria
      */
     public List<Song> searchSongsByTitle(String searchTerm, int maxDistance) {
+
+        if (searchTerm == null) {
+            return Collections.emptyList(); // Return empty list if search term is null
+        }
 
         // First, get all songs
         List<Song> allSongs = songRepository.findAll();

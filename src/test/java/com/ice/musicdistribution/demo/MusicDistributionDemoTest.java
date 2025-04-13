@@ -1,4 +1,4 @@
-package com.ice.musicdistribution;
+package com.ice.musicdistribution.demo;
 
 import com.ice.musicdistribution.command.CommandBus;
 import com.ice.musicdistribution.command.commands.*;

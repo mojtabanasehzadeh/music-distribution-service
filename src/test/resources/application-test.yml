@@ -13,7 +13,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update # <-- Schema updated automatically
-    show-sql: true     # <-- Log SQL statements
+    show-sql: false     # <-- Log SQL statements
     properties:
       hibernate:
         format_sql: true # <-- Format logged SQL
