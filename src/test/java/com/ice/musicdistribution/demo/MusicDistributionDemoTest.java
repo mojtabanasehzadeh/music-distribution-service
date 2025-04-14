@@ -82,14 +82,14 @@ public class MusicDistributionDemoTest {
 
     @Test
     public void fullReleaseLifecycleTest() {
-        // Log test entities for debugging
-        System.out.println("Artist ID: " + artistId);
-        System.out.println("Label ID: " + labelId);
-        System.out.println("Song IDs: " + song1Id + ", " + song2Id);
-        System.out.println("Release ID: " + releaseId);
+
+//        System.out.println("Artist ID: " + artistId);
+//        System.out.println("Label ID: " + labelId);
+//        System.out.println("Song IDs: " + song1Id + ", " + song2Id);
+//        System.out.println("Release ID: " + releaseId);
 
         // Step 1: Create a release
-        System.out.println("\n--- STEP 1: Create a release ---");
+//        System.out.println("\n--- STEP 1: Create a release ---");
         CreateRelease createReleaseCommand = new CreateRelease(releaseId, "Sheeran Collection", artistId);
         Release release = commandBus.executeForResult(createReleaseCommand);
 
@@ -97,10 +97,10 @@ public class MusicDistributionDemoTest {
         assertEquals("Sheeran Collection", release.getTitle());
         assertEquals(artistId, release.getArtistId());
         assertEquals(Release.ReleaseStatus.DRAFT, release.getStatus());
-        System.out.println("Release created: " + release.getTitle() + " (" + release.getId() + ")");
+//        System.out.println("Release created: " + release.getTitle() + " (" + release.getId() + ")");
 
         // Step 2: Add songs to the release
-        System.out.println("\n--- STEP 2: Add songs to the release ---");
+//        System.out.println("\n--- STEP 2: Add songs to the release ---");
         Set<UUID> songIds = new HashSet<>();
         songIds.add(song1Id);
         songIds.add(song2Id);
@@ -113,10 +113,10 @@ public class MusicDistributionDemoTest {
         assertEquals(2, release.getSongIds().size());
         assertTrue(release.getSongIds().contains(song1Id));
         assertTrue(release.getSongIds().contains(song2Id));
-        System.out.println("Songs added to release. Total songs: " + release.getSongIds().size());
+//        System.out.println("Songs added to release. Total songs: " + release.getSongIds().size());
 
         // Step 3: Propose a release date
-        System.out.println("\n--- STEP 3: Propose a release date ---");
+//        System.out.println("\n--- STEP 3: Propose a release date ---");
         LocalDate tomorrow = LocalDate.now(clock).plus(1, ChronoUnit.DAYS);
         ProposeReleaseDate proposeCommand = new ProposeReleaseDate(releaseId, artistId, tomorrow);
         commandBus.execute(proposeCommand);
@@ -125,10 +125,10 @@ public class MusicDistributionDemoTest {
         release = releaseRepository.findById(releaseId).orElseThrow();
         assertEquals(Release.ReleaseStatus.PROPOSED, release.getStatus());
         assertEquals(tomorrow, release.getProposedReleaseDate());
-        System.out.println("Release date proposed: " + release.getProposedReleaseDate());
+//        System.out.println("Release date proposed: " + release.getProposedReleaseDate());
 
         // Step 4: Label approves the release date
-        System.out.println("\n--- STEP 4: Label approves the release date ---");
+//        System.out.println("\n--- STEP 4: Label approves the release date ---");
         ApproveReleaseDate approveCommand = new ApproveReleaseDate(releaseId, labelId, tomorrow);
         commandBus.execute(approveCommand);
 
@@ -136,10 +136,10 @@ public class MusicDistributionDemoTest {
         release = releaseRepository.findById(releaseId).orElseThrow();
         assertEquals(Release.ReleaseStatus.APPROVED, release.getStatus());
         assertEquals(tomorrow, release.getApprovedReleaseDate());
-        System.out.println("Release date approved: " + release.getApprovedReleaseDate());
+//        System.out.println("Release date approved: " + release.getApprovedReleaseDate());
 
         // Step 5: Publish the release (simulate that tomorrow has arrived)
-        System.out.println("\n--- STEP 5: Publish the release ---");
+//        System.out.println("\n--- STEP 5: Publish the release ---");
         PublishRelease publishCommand = new PublishRelease(releaseId, tomorrow);
         commandBus.execute(publishCommand);
 
@@ -147,10 +147,10 @@ public class MusicDistributionDemoTest {
         release = releaseRepository.findById(releaseId).orElseThrow();
         assertEquals(Release.ReleaseStatus.PUBLISHED, release.getStatus());
         assertNotNull(release.getPublishedDate());
-        System.out.println("Release published on: " + release.getPublishedDate());
+//        System.out.println("Release published on: " + release.getPublishedDate());
 
         // Step 6: Search for songs
-        System.out.println("\n--- STEP 6: Search for songs by title ---");
+//        System.out.println("\n--- STEP 6: Search for songs by title ---");
         List<Song> searchResults = searchService.searchSongsByTitle("Bad Habi", 2);
 
         // Verify search works
@@ -158,13 +158,13 @@ public class MusicDistributionDemoTest {
         boolean foundSong1 = searchResults.stream()
                 .anyMatch(song -> song.getId().equals(song1Id));
         assertTrue(foundSong1, "Search should find Bad Habits");
-        System.out.println("Search found " + searchResults.size() + " songs");
-        for (Song song : searchResults) {
-            System.out.println("  - " + song.getTitle());
-        }
+//        System.out.println("Search found " + searchResults.size() + " songs");
+//        for (Song song : searchResults) {
+//            System.out.println("  - " + song.getTitle());
+//        }
 
         // Step 7: Record streams
-        System.out.println("\n--- STEP 7: Record streams ---");
+//        System.out.println("\n--- STEP 7: Record streams ---");
 
         // Long stream (monetizable)
         RecordStream stream1Command = new RecordStream(
@@ -174,7 +174,7 @@ public class MusicDistributionDemoTest {
                 Instant.now(clock)
         );
         commandBus.execute(stream1Command);
-        System.out.println("Recorded monetizable stream (45s) for: Bad Habits");
+//        System.out.println("Recorded monetizable stream (45s) for: Bad Habits");
 
         // Short stream (not monetizable)
         RecordStream stream2Command = new RecordStream(
@@ -184,10 +184,10 @@ public class MusicDistributionDemoTest {
                 Instant.now(clock)
         );
         commandBus.execute(stream2Command);
-        System.out.println("Recorded non-monetizable stream (25s) for: Galway Girl");
+//        System.out.println("Recorded non-monetizable stream (25s) for: Galway Girl");
 
         // Step 8: Request artist stream report
-        System.out.println("\n--- STEP 8: Request artist stream report ---");
+//        System.out.println("\n--- STEP 8: Request artist stream report ---");
         ArtistStreamReport streamReport = artistStreamProjection.generateStreamReport(
                 artistId,
                 Instant.now(clock).minus(1, ChronoUnit.DAYS),
@@ -199,10 +199,10 @@ public class MusicDistributionDemoTest {
         assertEquals(2, streamReport.getTotalStreams());
         assertEquals(1, streamReport.getMonetizedStreams());
         assertEquals(1, streamReport.getNonMonetizedStreams());
-        System.out.println("Stream Report:");
-        System.out.println("  Total Streams: " + streamReport.getTotalStreams());
-        System.out.println("  Monetized Streams: " + streamReport.getMonetizedStreams());
-        System.out.println("  Non-monetized Streams: " + streamReport.getNonMonetizedStreams());
+//        System.out.println("Stream Report:");
+//        System.out.println("  Total Streams: " + streamReport.getTotalStreams());
+//        System.out.println("  Monetized Streams: " + streamReport.getMonetizedStreams());
+//        System.out.println("  Non-monetized Streams: " + streamReport.getNonMonetizedStreams());
 
         // Step 9: Request payment report
         System.out.println("\n--- STEP 9: Request payment report ---");
@@ -226,27 +226,27 @@ public class MusicDistributionDemoTest {
         // Verify payment report
         assertNotNull(paymentReport);
         assertEquals(1, paymentReport.getTotalMonetizedStreams());
-        System.out.println("Payment Report:");
-        System.out.println("  Total Monetized Streams: " + paymentReport.getTotalMonetizedStreams());
-        System.out.println("  Total Amount: " + paymentReport.getTotalAmount());
+//        System.out.println("Payment Report:");
+//        System.out.println("  Total Monetized Streams: " + paymentReport.getTotalMonetizedStreams());
+//        System.out.println("  Total Amount: " + paymentReport.getTotalAmount());
 
         // Step 10: Withdraw the release
-        System.out.println("\n--- STEP 10: Withdraw the release ---");
+//        System.out.println("\n--- STEP 10: Withdraw the release ---");
         WithdrawRelease withdrawCommand = new WithdrawRelease(releaseId, artistId);
         commandBus.execute(withdrawCommand);
 
         // Verify release was withdrawn
         release = releaseRepository.findById(releaseId).orElseThrow();
         assertEquals(Release.ReleaseStatus.WITHDRAWN, release.getStatus());
-        System.out.println("Release withdrawn successfully");
+//        System.out.println("Release withdrawn successfully");
 
         // Step 11: Verify songs are no longer searchable
-        System.out.println("\n--- STEP 11: Verify songs are no longer searchable ---");
+//        System.out.println("\n--- STEP 11: Verify songs are no longer searchable ---");
         searchResults = searchService.searchSongsByTitle("Bad", 2);
 
         // Verify songs cannot be found
         assertTrue(searchResults.isEmpty(), "Songs from withdrawn releases should not be searchable");
-        System.out.println("Search found " + searchResults.size() + " songs (expected: 0)");
+//        System.out.println("Search found " + searchResults.size() + " songs (expected: 0)");
 
         // Get all events for the release
         List<DomainEvent> releaseEvents = eventStore.getEventsForAggregate(releaseId);
@@ -270,7 +270,7 @@ public class MusicDistributionDemoTest {
                 .map(event -> event.getClass().getSimpleName())
                 .toList();
 
-        System.out.println("Complete event sequence for release " + releaseId + ":");
+//        System.out.println("Complete event sequence for release " + releaseId + ":");
         for (int i = 0; i < actualEventSequence.size(); i++) {
             System.out.println((i + 1) + ". " + actualEventSequence.get(i));
         }
@@ -290,9 +290,9 @@ public class MusicDistributionDemoTest {
                     "Event " + expectedEvent + " not found or not in correct sequence");
             lastFoundIndex = currentIndex;
         }
-        System.out.println("✓ Complete event sequence verified successfully");
-
-        System.out.println("\nTest completed successfully!");
+//        System.out.println("✓ Complete event sequence verified successfully");
+//
+//        System.out.println("\nTest completed successfully!");
     }
 
     /**
