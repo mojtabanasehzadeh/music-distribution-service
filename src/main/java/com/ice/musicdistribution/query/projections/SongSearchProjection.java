@@ -41,10 +41,6 @@ public class SongSearchProjection {
                 releaseId -> ConcurrentHashMap.newKeySet()
         );
         releaseSongs.addAll(event.getSongIds());
-
-        // In a real implementation, we would fetch song details from the repository
-        // For this simplified version, we only have the song IDs
-        // We would normally add them to songsById here
     }
 
     /**
