@@ -78,7 +78,7 @@ Running Tests:
 `
 
 ## Demonstration Test (`MusicDistributionDemoTest`)
-1. The test class `src/test/java/com/ice/musicdistribution/demo/MusicDistributionDemoTest.java` is included specifically and **_only for demonstrating_** the end-to-end flow of the CQRS architecture within this application.
+1. The test class `src/test/java/com/moji/musicdistribution/demo/MusicDistributionDemoTest.java` is included specifically and **_only for demonstrating_** the end-to-end flow of the CQRS architecture within this application.
 
 *   **Purpose:** It simulates a sequence of commands (creating a release, adding songs, proposing/approving dates, publishing, recording streams) and subsequent queries (searching for songs, generating reports) using the pre-inserted base data.
 *   **Not a Production Test:** This test includes extensive `System.out.println` statements to trace the flow of commands, events, and query results. It is **not** intended as a standard unit or integration test for production validation but serves as a learning and demonstration tool.

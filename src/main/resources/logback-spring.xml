@@ -40,13 +40,13 @@
     </appender>
 
     <!-- Event logger for CQRS events -->
-    <logger name="com.ice.musicdistribution.eventstore" level="DEBUG" additivity="false">
+    <logger name="com.moji.musicdistribution.eventstore" level="DEBUG" additivity="false">
         <appender-ref ref="EVENT_FILE"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Application specific loggers -->
-    <logger name="com.ice.musicdistribution" level="DEBUG" additivity="false">
+    <logger name="com.moji.musicdistribution" level="DEBUG" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
